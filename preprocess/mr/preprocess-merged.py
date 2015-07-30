@@ -7,8 +7,8 @@ import os
 import sys
 
 
-last_file = None
-tokens_in_file = []
+last_filename = None
+tokens_per_email = []
 
 # NLTK
 os.environ["NLTK_DATA"] = "/usr/share/nltk_data"
@@ -36,36 +36,42 @@ def tokenize_stem(line):
 
 
 def write_tokens():
-    if tokens_in_file and len(tokens_in_file) > 0:
-                print " ".join(tokens_in_file)
+    if tokens_per_email and len(tokens_per_email) > 0:
+            sys.stdout.write(" ".join(tokens_per_email).encode('utf-8'))
+            sys.stdout.write('\n')
 
 
 # input comes from STDIN (standard input)
+# Multiple emails in a single file separated by a space
 for line in sys.stdin:
     try:
+        # remove leading and trailing whitespace
+        line = line.strip()
+
+        # Get current file name
+        #filename = os.environ['map_input_file']
+        filename = "xxx"
+
+        # First time
+        if not last_filename:
+            last_filename = filename
+
+        if line is None or line == '' or len(line) == 0 or filename != last_filename:
+            write_tokens()
+            # Reset
+            last_filename = filename
+            del tokens_per_email[:]
+
+        line = line.decode('utf-8')
+
         if pattern.match(line):
             #print("[Mapper][Filter] Ignoring record: {0}".format(line))
             continue
 
-        # remove leading and trailing whitespace
-        line = line.strip()
         # Tokenize & Stem
         tokens = tokenize_stem(line)
         # Keep accumulating tokens for same file
-        tokens_in_file.extend(tokens)
-
-        # Get current file name
-        filename = os.environ['map_input_file']
-
-        # First time
-        if not last_file:
-            last_file = filename
-
-        if filename != last_file:
-            write_tokens()
-            # Reset
-            last_file = filename
-            del tokens_in_file[:]
+        tokens_per_email.extend(tokens)
 
     except Exception as e:
         print e
