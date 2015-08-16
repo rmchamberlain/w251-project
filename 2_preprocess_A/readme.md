@@ -45,4 +45,3 @@ After using option 2, check whether files uploaded properly inside the container
 ```
 swift list w251-enron emails
 ```
->>>>>>> 0da67ed5f2384af078f0bce8b6bdb7a66568b2f5
