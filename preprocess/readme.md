@@ -23,10 +23,10 @@ if diskno != 0 or disks != 1:
 
 #2 OPTIONS FOR YOUR TO RUN THE PYTHON SCRIPT
 #Option 1: just clean the data and save everything in "/clean" folder in the server
-python clean.py no-attach local 1 150
+python clean.py no-attach local 1 151
 
 #Option 2: in additon to job in Option 1, also upload to SWIFT OBJECT STORAGE (much slower)
-python clean.py no-attach swift 1 150
+python clean.py no-attach swift 1 151
 
 #Check whether files uploaded properly at Swift storage
 swift list w251-enron
