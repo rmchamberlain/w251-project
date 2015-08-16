@@ -44,3 +44,23 @@ sudo pip install --upgrade pip
 sudo pip install --upgrade setuptools
 sudo pip install --upgrade virtualenv 
 sudo pip install python-swiftclient
+
+#ensure VIM editor working properly
+cat <<EOT >> .vimrc
+:set nocompatible
+set backspace=indent,eol,start
+EOT
+
+#edit bash to set credentials
+cat <<EOT >> .bashrc
+#enron project's softlayer account
+export ST_AUTH=https://dal05.objectstorage.softlayer.net/auth/v1.0/
+export ST_USER=SLOS527663-3:arthurmak
+export ST_KEY=f38a17790a83d57c5a3d1f2f56d5b957ee0fb206cf1db05d47eb77ff66085d7f
+export SWIFT_AUTH_URL=https://dal05.objectstorage.softlayer.net/auth/v1.0/
+export SWIFT_USER=SLOS527663-3:arthurmak
+export SWIFT_KEY=f38a17790a83d57c5a3d1f2f56d5b957ee0fb206cf1db05d47eb77ff66085d7f
+EOT
+
+source ~/.bashrc
+

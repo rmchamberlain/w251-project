@@ -21,7 +21,7 @@ vi /usr/lib/python2.7/zipfile.py
 if diskno != 0 or disks != 1:
     raise BadZipFile("zipfiles that span multiple disks are not supported")
 
-#2 OPTIONS FOR YOUR TO RUN THE PYTHON SCRIPT
+#2 OPTIONS FOR YOU TO RUN THE PYTHON SCRIPT
 #Option 1: just clean the data and save everything in "/clean" folder in the server
 python clean.py no-attach local 1 151
 
@@ -30,5 +30,3 @@ python clean.py no-attach swift 1 151
 
 #Check whether files uploaded properly at Swift storage
 swift list w251-enron
-
-
