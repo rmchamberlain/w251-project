@@ -18,7 +18,10 @@ Before using LDA to perform Topic Modeling the emails needed to be pre-processed
 ####Spark
 The LDA processing was performed in Spark using the MLLib library.  The data was read in from and written out to HDFS.
 
-
 ## Code Execution
-#### load\_enron\_data.py
-Transfers data from Amazon data set into SoftLayer object storage (Swift).  Swift credentials are grabbed from environment variables.
+####1. Load data from Amazon public dataset to Swift
+Go to [1_get_data](https://github.com/rmchamberlain/w251-project/edit/master/1_get_data). Follow the instructions in get_data.sh to (i) mount the data into a new EC2 instance and (ii) install Python, its packages and Swift onto the EC2 isntance. 
+
+Then, scp the load_enron_data.py file onto the EC2 instance and run it on that EC2 instance with
+    python load_enron_data.py
+
