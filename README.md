@@ -20,7 +20,7 @@ The LDA processing was performed in Spark using the MLLib library.  The data was
 
 ## Code Execution
 ####1. Load data from Amazon public dataset to Swift
-Go to [1_get_data](https://github.com/rmchamberlain/w251-project/edit/master/1_get_data). Follow the instructions in get_data.sh to (i) mount the data into a new EC2 instance and (ii) install Python, its packages and Swift onto the EC2 isntance. 
+Go to [1_load_data](https://github.com/rmchamberlain/w251-project/edit/master/1_load_data). Follow the instructions in get_data.sh to (i) mount the data into a new EC2 instance and (ii) install Python, its packages and Swift onto the EC2 isntance. 
 
 Then, you will need to transfer files from EC2 instance to Swift Obeject Storage. Simply scp the load_enron_data.py file onto the EC2 instance and run it on that EC2 instance with:
 ``` 
@@ -35,4 +35,6 @@ python clean.py no-attach swift 1 151
 ####3. Create new server with HDFS for second stage cleaning with NLP and Hadoop
 Go to [3_preprocess_B](https://github.com/rmchamberlain/w251-project/edit/master/3_preprocess_B). 
 
+####4. Run LDA algorithm using Spark MLlib
+Go to [4_lda](https://github.com/rmchamberlain/w251-project/edit/master/4_lda). 
 
