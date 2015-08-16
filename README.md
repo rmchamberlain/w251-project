@@ -34,7 +34,7 @@ python clean.py no-attach swift 1 151
 ```
 ####
 
-3. Use Fabric to create HDFS
-Go to [3_preprocess_B](https://github.com/rmchamberlain/w251-project/edit/master/2_preprocess_A). 
+3. Create new server with HDFS for second stage cleaning with NLP and Hadoop
+Go to [3_preprocess_B](https://github.com/rmchamberlain/w251-project/edit/master/3_preprocess_B). 
 
 
