@@ -22,6 +22,19 @@ The LDA processing was performed in Spark using the MLLib library.  The data was
 ####1. Load data from Amazon public dataset to Swift
 Go to [1_get_data](https://github.com/rmchamberlain/w251-project/edit/master/1_get_data). Follow the instructions in get_data.sh to (i) mount the data into a new EC2 instance and (ii) install Python, its packages and Swift onto the EC2 isntance. 
 
-Then, scp the load_enron_data.py file onto the EC2 instance and run it on that EC2 instance with
-    python load_enron_data.py
+Then, you will need to transfer files from EC2 instance to Swift Obeject Storage. Simply scp the load_enron_data.py file onto the EC2 instance and run it on that EC2 instance with:
+``` 
+python load_enron_data.py
+```
+####2. Create a temporary server for first stage cleaning of the data in Swift
+Go to [2_preprocess_A](https://github.com/rmchamberlain/w251-project/edit/master/2_preprocess_A). Follow the README instructions in that folder to setup the server. There is a "setup.sh" script to help setup the server quickly. After everything is well setup, you can run the clean script to (i) get the files from the Swift Object Store, (ii) clean it such that each text file represents a email with one word per line, (iii) upload those text files back to the Swift Object Store. The clean script is called "clean.py" and you should run it as such:
+```
+python clean.py no-attach swift 1 151
+#This means that we are cleaning only the emails and ignore the attachments, and that we are selecting folders 1 to 151
+```
+####
+
+3. Use Fabric to create HDFS
+Go to [3_preprocess_B](https://github.com/rmchamberlain/w251-project/edit/master/2_preprocess_A). 
+
 
